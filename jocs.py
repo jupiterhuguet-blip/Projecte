@@ -102,24 +102,25 @@ def coinflip():
 import robot
 import robot3
 import random
-
+from time import sleep
 def tresenratlla():
     print("")
     print("")
     print("Joc de Tres en Ratlla")
     import robot
     r = robot3.robot()
-        
     
     while True:
         try:
+            sleep(1)
             fila_robot, columna_robot = r.playing()
             print(f"El robot ha triat la posicio: fila {fila_robot}, columna {columna_robot}")
             print("")
             r.mostrar_tauler()
             print("")
-            columna_jugador = int(input("Posicio columna (0, 1 o 2): "))
-            fila_jugador = int(input("Posicio fila (0, 1 o 2): "))
+            sleep(1)
+            columna_jugador = int(input("Posicio fila (0, 1 o 2): "))
+            fila_jugador = int(input("Posicio columna (0, 1 o 2): "))
             
             if columna_jugador < 0 or columna_jugador > 2 or fila_jugador < 0 or fila_jugador > 2:
                 print("Posicio no valida. Intenta de nou.")
