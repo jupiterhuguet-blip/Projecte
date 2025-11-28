@@ -1,6 +1,8 @@
 import robot
 # Joc de Pedra, Paper, Tisora
 def janken():
+    print("")
+    print("")
     print("Nem a jugar a Pedra, Paper, Tisora")
     print("Per jugar al que guanye 3 (1)")
     print("Per jugar al millor de 5 rondes (2)")
@@ -56,6 +58,8 @@ def janken():
             break
 # Joc d'endevinar el numero
 def nana():
+    print("")
+    print("")
     print("Joc de endevinar el numero")
     print("He triat un numero entre l'1 i el 100")
     # Generem el numero aleatori
@@ -65,14 +69,72 @@ def nana():
     while True:
         try:
             player = int(input("Intenta endevinar el numero: ").strip())
-        except ValueError:
+            if player < random_number:
+                print("El numero es mes gran")
+            elif player > random_number:
+                print("El numero es mes petit")
+            else:
+                print("Ben fet has adivinat el numero.")
+                break
+        except ValueError:            
             print("Introdueix un numero entre 1 i 100.")
-            continue
-# Comprovem la resposta del jugador
-        if player < random_number:
-            print("El numero es mes gran")
-        elif player > random_number:
-            print("El numero es mes petit")
-        else:
-            print("Ben fet has adivinat el numero.")
-            break
+def coinflip():
+    print("")
+    print("")
+    print("Joc de Cara o Creu")
+    import robot2
+    r = robot2.robot()
+    jugador = input("Tria cara o creu: ")
+    eleccio_robot = r.playing()
+    print(f"la moneda ha caigut en: {eleccio_robot}")
+    if jugador == eleccio_robot:
+        print("Has guanyat")
+        print("")
+        print("")
+    else:
+        print("Has perdut")
+        print("")
+        print("")
+    if jugador != "cara" and jugador != "creu":
+        print("Opcio no valida, torna-ho a intentar")
+        print("")
+        print("")
+import robot
+import robot3
+import random
+
+def tresenratlla():
+    print("")
+    print("")
+    print("Joc de Tres en Ratlla")
+    import robot
+    r = robot3.robot()
+        
+    
+    while True:
+        try:
+            fila_robot, columna_robot = r.playing()
+            print(f"El robot ha triat la posicio: fila {fila_robot}, columna {columna_robot}")
+            print("")
+            r.mostrar_tauler()
+            print("")
+            columna_jugador = int(input("Posicio columna (0, 1 o 2): "))
+            fila_jugador = int(input("Posicio fila (0, 1 o 2): "))
+            
+            if columna_jugador < 0 or columna_jugador > 2 or fila_jugador < 0 or fila_jugador > 2:
+                print("Posicio no valida. Intenta de nou.")
+                continue
+            
+            if r.game[fila_jugador][columna_jugador] != "-":
+                print("Aquesta posicio ja esta ocupada. Intenta de nou.")
+                continue
+        
+            r.game[fila_jugador][columna_jugador] = "o"
+            print("")
+            r.mostrar_tauler()
+            print("")
+            
+            
+        except ValueError:
+            print("Introdueix numeros valids (0, 1 o 2).")
+    
