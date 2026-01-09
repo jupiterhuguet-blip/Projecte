@@ -12,8 +12,6 @@ while True:
         choice = input("Tria el joc (1 o 2 o 3 o 4) o sortir amb (S): ")
         if choice == '1':
             jocs.janken()
-            
-        elif choice == '2':
             jocs.nana()
             
         elif choice == '3':
